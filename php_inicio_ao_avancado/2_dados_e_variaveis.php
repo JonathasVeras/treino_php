@@ -10,6 +10,9 @@ $string = 'Jonathas';
 //Uma variavel global de tipo inteiro
 global $inteiro_global;
 $inteiro_global = 42;
+//Uma variavel estática (Só serve dentro de uma função, porém seu valor fica salvo!)
+static $inteiro_estatico;
+$inteiro_estatico = 43;
 
 /*OBS: Em uma saída, existe diferença entre aspas simples e duplas:
 Strings com aspas simples:
@@ -43,5 +46,23 @@ $texto = <<< FIM
   e apenas com o ponto-e-vírgula para finalizar.
 FIM;
 echo "<pre>$texto</pre><br><br>";
-echo "Existem também as variáveis globais, que podem ser acessadas de qualquer parte do programa<br>Sua sintaxe é: global \$variavel;";
+echo "Existem também as variáveis globais, que podem ser acessadas de qualquer parte do programa<br>Sua sintaxe é: global \$variavel;<br><br>";
+echo "Existem também as variáveis estáticas, essas ficam dentro de funções e são salvas após a função fechar, logo se a função é chamada de novo, ela está lá com o mesmo valor:<br>";
+echo "static \$variavel;";
+
+function funcao()
+{
+  static $variavel_static;
+  for($i=0; $i<10; $i++)
+  {
+    $variavel_static++;
+  }
+  return $variavel_static;
+}
+echo "Irei chamar a função 'funcao' e printar a variavel estatica: <br>";
+echo "1°  ", funcao(), "<br>";
+funcao();
+echo "2°  ", funcao(), "<br><br>";
+echo "E também temos as variáveis superGlobais, nesse caso é melhor ir dar uma pesquisada, visi.<br><br>";
+echo "Mais detalhes em: <a href=\"http://www.bosontreinamentos.com.br/php-programming/curso-de-php-declaracao-e-atribuicao-de-variaveis/\">http://www.bosontreinamentos.com.br/php-programming/curso-de-php-declaracao-e-atribuicao-de-variaveis/</a><br><br>";
 ?>

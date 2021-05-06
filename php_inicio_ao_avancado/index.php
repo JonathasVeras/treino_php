@@ -11,14 +11,17 @@ include 'header.php';
 
 switch ($pagina) {
     case 'hello_world':
-        include 'hello_world.php';
+        include '1_hello_world.php';
         break;
     case 'dados_e_variaveis':
-        include 'dados_e_variaveis.php';
+        include '2_dados_e_variaveis.php';
         break;
     case 'conversao_de_tipos_de_dados':
-        include 'conversao_de_tipos_de_dados.php';
+        include '3_conversao_de_tipos_de_dados.php';
         break;
+        case 'constantes':
+            include '4_constantes.php';
+            break;
     default:
         'home.php';
         break;
